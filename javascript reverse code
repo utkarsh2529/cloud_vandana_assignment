@@ -1,0 +1,25 @@
+function reverseWordsInSentence(sentence) {
+  // Split the sentence into words
+  const words = sentence.split(' ');
+
+  // Reverse each word
+  const reversedWords = words.map(word => {
+    // Check for any punctuation at the end of the word
+    const punctuation = word.match(/\W*$/)[0];
+    
+    // Remove the punctuation, reverse the word, and add the punctuation back
+    const reversedWord = word.replace(/\W*$/, '').split('').reverse().join('') + punctuation;
+    
+    return reversedWord;
+  });
+
+  // Join the reversed words to form the reversed sentence
+  const reversedSentence = reversedWords.join(' ');
+
+  return reversedSentence;
+}
+
+// Example usage:
+const inputSentence = "This is a sunny day";
+const reversedSentence = reverseWordsInSentence(inputSentence);
+console.log(reversedSentence); // Output: "shiT si a ynnus yad"
